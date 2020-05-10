@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * registerServiceWorker.js就是用来控制 Service workers 的注册和卸载，
  * 它可以在 生产环境 中，注册一个service worker来为本地缓存提供服务。

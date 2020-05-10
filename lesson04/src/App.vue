@@ -1,19 +1,31 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
+    <div class="hello">
+        <vue-test :typeSpan="typeSpan"></vue-test>
     </div>
-    <router-view />
-  </div>
 </template>
 
-<style lang="stylus">
-#app
-    font-family Avenir, Helvetica, Arial, sans-serif
-    -webkit-font-smoothing antialiased
-    -moz-osx-font-smoothing grayscale
-    text-align center
-    color #2c3e50
-    margin-top 60px
+<script type="text/jsx">
+import VueTest from '@pages/jsx/VueTest'
+export default {
+    name: 'HelloWorld',
+    components: {
+        VueTest
+    },
+    computed: {
+        typeSpan() {
+            return {
+                text: 'hello',
+                attrs: {
+                    class: 'open-service',
+                    style: 'color:#0199f0;cursor:pointer'
+                }
+            }
+        }
+    }
+}
+</script>
+
+<style lang="stylus" scoped>
+.hello
+    background #e45
 </style>
