@@ -1,0 +1,17 @@
+# https://editorconfig.org/
+
+root = true
+
+[*.{md, json}]
+charset = utf-8
+indent_style = space
+indent_size = 2
+
+
+[/.eslintrc.js]
+indent_style = space
+indent_size = 2
+
+[{vue.config.js, babel.config.js}]
+indent_style = space
+indent_size = 2
