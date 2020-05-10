@@ -28,7 +28,7 @@
     * (_) Router
     * (_) Vuex
     * (_) CSS Pre-processors
-    * (\*) Linter / Formatter
+    * (_) Linter / Formatter
     * ( ) Unit Testing
     * ( ) E2E Testing
 
