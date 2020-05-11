@@ -35,3 +35,21 @@ new Vue({
     store,
     render: (h) => h(App),
 }).$mount('#app')
+
+// 框架结构调整
+// eslint结合 vscode的自动修复
+// axiso二次封装
+// 自定义Event Bus
+// 按需加载 element ui组件
+// jsx语法
+// 字段过滤器
+// mock.js
+// 多入口设计
+// stylus全局
+// 国际化 i18n
+// vuex数据持久化
+// mixin/mixins
+// 字体图标iconfont
+// 自定义指令
+// 二次封装ui库, 并穿透修改第三方组件的样式
+// 项目打包,发布
