@@ -77,7 +77,9 @@ module.exports = {
             },
         },
         // 启用 CSS modules for all css / pre-processor files.
-        modules: false,
+        // modules: false,
+        // 启用 CSS modules for all css / pre-processor files.
+        requireModuleExtension: true,
     },
 
     chainWebpack: (config) => {

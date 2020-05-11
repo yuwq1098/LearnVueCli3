@@ -11,6 +11,12 @@ export default {
     components: {
         VueTest
     },
+    created () {
+        console.log(this)
+        this.bus.$once('triggerTestFn', () => {
+            console.log('我是 triggerTestFn')
+        })
+    },
     computed: {
         typeSpan() {
             return {
