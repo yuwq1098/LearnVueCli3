@@ -1,18 +1,29 @@
 <template>
     <div class="hello">
+        <p>{{tel | telAnonymization}}</p>
+        <p>{{15 | formatAmount(3)}}</p>
         <vue-test :typeSpan="typeSpan"></vue-test>
     </div>
 </template>
 
 <script type="text/jsx">
-import VueTest from '@pages/jsx/VueTest'
+import VueTest from '@pages/jsx/VueTest.jsx'
 export default {
     name: 'HelloWorld',
     components: {
         VueTest
     },
-    created () {
-        console.log(this)
+    filters: {
+        filterA: function(str) {
+            return str + 'xxx'
+        }
+    },
+    data() {
+        return {
+            tel: '18870836264'
+        }
+    },
+    created() {
         this.bus.$once('triggerTestFn', () => {
             console.log('我是 triggerTestFn')
         })

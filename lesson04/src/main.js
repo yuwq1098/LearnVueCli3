@@ -20,15 +20,22 @@ import VueAxios from 'vue-axios'
 import _ from 'lodash'
 // 中央事件总线Event Bus,实现兄弟组件通信
 import bus from './event-bus'
+// 全局的混入mixin
+import globalMixin from './mixins/global'
+// 全局引入字段过滤器的安装文件
+import textFilters from './text-filters'
 
 // 阻止 vue 在启动时生成生产提示
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
+Vue.use(textFilters)
 
 // 将项目中频繁使用的函数赋值给Vue原型属性，便于使用
 Vue.prototype._ = _
 Vue.prototype.bus = bus
+
+Vue.mixin(globalMixin)
 
 new Vue({
     router,
@@ -36,20 +43,22 @@ new Vue({
     render: (h) => h(App),
 }).$mount('#app')
 
-// 框架结构调整
-// eslint结合 vscode的自动修复
-// axiso二次封装
-// 自定义Event Bus
-// 按需加载 element ui组件
-// jsx语法
-// 字段过滤器
-// mock.js
-// 多入口设计
+// 框架结构调整 √
+// eslint结合 vscode的自动修复 √
+// axiso二次封装 √
+// 自定义Event Bus √
+// 按需加载 element ui组件 √
+// jsx语法 √
+// 字段过滤器 √
+// mixin/mixins √
 // stylus全局
-// 国际化 i18n
-// vuex数据持久化
-// mixin/mixins
+// vuex及 vuex数据持久化
 // 字体图标iconfont
 // 自定义指令
+
+// mock.js
+// 国际化 i18n
 // 二次封装ui库, 并穿透修改第三方组件的样式
+// 多入口设计
 // 项目打包,发布
+// 打包压缩、项目包体优化
