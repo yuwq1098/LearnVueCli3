@@ -6,14 +6,13 @@
   -->
 
 <template>
-    <div class='root'>
-        <router-view></router-view>
+    <div class='CardBox'>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'root',
+    name: 'CardBox',
     // 注册组件
     components: {
         // components...
@@ -51,10 +50,6 @@ export default {
     // 实例方法
     methods: {
         // methods...
-    },
-    // 视图渲染
-    render() {
-        return <div>{/** 我是模板 */}</div>
     }
 }
 </script>

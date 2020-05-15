@@ -1,19 +1,15 @@
-<!--
-  - @description: vue的vscode模板
-  - @author: 则丸
-  - @weChat: yuwq1098
-  - @producer: 海康威视 & 易立德
-  -->
+/**
+ *  @description: 高德地图组件的demo
+ *  @author: 则丸
+ *  @weChat: yuwq1098
+ *  @producer: 海康威视 & 易立德
+ **/
 
-<template>
-    <div class='root'>
-        <router-view></router-view>
-    </div>
-</template>
+// 引入样式
+import './index.styl'
 
-<script>
 export default {
-    name: 'root',
+    name: 'VueAmap',
     // 注册组件
     components: {
         // components...
@@ -54,11 +50,10 @@ export default {
     },
     // 视图渲染
     render() {
-        return <div>{/** 我是模板 */}</div>
-    }
+        return (
+            <div class={{ VueAmap: true }}>
+                <div>demo2</div>
+            </div>
+        )
+    },
 }
-</script>
-
-<!-- 限定作用域'scoped' 不要误写成scope -->
-<style lang='stylus' rel='stylesheet/stylus' scoped>
-</style>

@@ -1,19 +1,12 @@
-<!--
-  - @description: vue的vscode模板
-  - @author: 则丸
-  - @weChat: yuwq1098
-  - @producer: 海康威视 & 易立德
-  -->
+/**
+ *  @description: jsx的vscode模板
+ *  @author: 则丸
+ *  @weChat: yuwq1098
+ *  @producer: 海康威视 & 易立德
+ **/
 
-<template>
-    <div class='root'>
-        <router-view></router-view>
-    </div>
-</template>
-
-<script>
 export default {
-    name: 'root',
+    name: 'Home',
     // 注册组件
     components: {
         // components...
@@ -30,6 +23,12 @@ export default {
     },
     // vue实例被创建时
     created() {
+        // this.axiox.get('mock/test1').then((res) => {
+        //     console.log(res, 'res')
+        // })
+        this.axios.get('/mock/test1').then((response) => {
+            console.log(response.data)
+        })
         // created...
     },
     // vue实例被挂载至dom上时
@@ -54,11 +53,6 @@ export default {
     },
     // 视图渲染
     render() {
-        return <div>{/** 我是模板 */}</div>
-    }
+        return <div>首页</div>
+    },
 }
-</script>
-
-<!-- 限定作用域'scoped' 不要误写成scope -->
-<style lang='stylus' rel='stylesheet/stylus' scoped>
-</style>

@@ -14,14 +14,18 @@ module.exports = {
         port: 8025,
         // 设置代理
         proxy: {
-            '/api': {
+            '/mock': {
                 // 目标 API 地址
                 // target: 'https://www.laoge.mobi',
-                target: 'http://localhost:7001',
+                target: 'http://localhost:3000/demo',
                 // 如果要代理 websockets
                 ws: false,
                 // 将主机标头的原点更改为目标URL
                 changeOrigin: false,
+                pathRewrite: {
+                    // 需要rewrite重写的, 如果在服务器端做了处理则可以不要这段
+                    '^/mock': '',
+                },
             },
         },
     },
@@ -47,7 +51,7 @@ module.exports = {
             stylus: {
                 // http://lesscss.org/usage/#less-options-strict-units `Global Variables`
                 // `primary` is global variables fields name
-                // import: '~@/assets/styles/varibles.styl',
+                import: '~@/assets/css/base.styl',
                 // globalVars: {
                 //   primary: '#fff'
                 // }

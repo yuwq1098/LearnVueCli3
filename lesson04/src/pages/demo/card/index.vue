@@ -1,27 +1,37 @@
 <!--
-  - @description: vue的vscode模板
+  - @description: Card的 卡片组件demo
   - @author: 则丸
   - @weChat: yuwq1098
   - @producer: 海康威视 & 易立德
   -->
 
 <template>
-    <div class='root'>
-        <router-view></router-view>
+    <div class='CardDemo'>
+        <div class="m-card-wrap">
+            <CardBox :list="listData"></CardBox>
+        </div>
     </div>
 </template>
 
 <script>
+import CardBox from '@components/wqui/card-box'
 export default {
-    name: 'root',
+    name: 'CardDemo',
     // 注册组件
     components: {
+        CardBox
         // components...
     },
     // 数据
     data() {
         return {
-            // date...
+            listData: Array(6)
+                .fill({})
+                .map((n, i) => {
+                    return {
+                        name: `demo${i}`
+                    }
+                })
         }
     },
     // 接收父组件传入的参数
@@ -30,7 +40,7 @@ export default {
     },
     // vue实例被创建时
     created() {
-        // created...
+        console.log('listData', this.listData)
     },
     // vue实例被挂载至dom上时
     mounted() {
@@ -61,4 +71,9 @@ export default {
 
 <!-- 限定作用域'scoped' 不要误写成scope -->
 <style lang='stylus' rel='stylesheet/stylus' scoped>
+.CardDemo
+    width 1200px
+    min-height 240px
+    background rgba(255, 255, 255, 0.5)
+    _completeCenter(0, 0, 50px, auto)
 </style>
