@@ -19,6 +19,19 @@ export default {
             // date...
         }
     },
+    // 字段过滤器
+    filters: {
+        // 卡片label
+        cardLabel: (type = '1') => {
+            const labelLabels = {
+                '1': '正版图片',
+                '2': '最新发布',
+                '3': '学习视频',
+                '4': '最多观看',
+            }
+            return type && labelLabels[type] ? labelLabels[type] : ''
+        },
+    },
     // 接收父组件传入的参数
     props: {
         data: {
@@ -68,6 +81,16 @@ export default {
                 message: '点赞成功！',
             })
         },
+        // jsx使用字段过滤器
+        useFilters(name, value, ...rest) {
+            //使用this.$options.filters[]方式获取本地过滤器
+            const filters = this.$options.filters[name]
+            return filters(value, ...rest)
+        },
+        // 获取字段过滤器处理后的信息
+        getCardLabel(str) {
+            return this.useFilters('cardLabel', str)
+        },
     },
     // 视图渲染
     render() {
@@ -77,7 +100,7 @@ export default {
                 <li class="u-item">
                     {/*图片容器区*/}
                     <div class="u-picture-wrap">
-                        <div class="u-label">{data.labelType || ''}</div>
+                        {data.labelType <= 4 && <div class="u-label">{this.getCardLabel(data.labelType || '')}</div>}
                         <div class="u-pic">
                             <img src={data.coverImg} title={data.title || ''} />
                         </div>

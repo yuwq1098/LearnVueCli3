@@ -46,7 +46,7 @@ router.get('/card', async (ctx, next) => {
                     coverImg: function() {
                         return coverPicMaps[Random.integer(0, 19)]
                     },
-                    labelType: /[1-4]/, // 标签类型， 1正版图片 2最新发布 3学习视频 4最多观看
+                    labelType: /[1-9]/, // 标签类型， 1正版图片 2最新发布 3学习视频 4最多观看
                     title: '@ctitle(5,25)', // 标题
                     subTitle: '@ctitle(3,12)', // 副标题
                     creationDate: '@datetime()', // 创建日期

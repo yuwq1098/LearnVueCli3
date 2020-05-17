@@ -10,7 +10,7 @@
         <li class="u-item">
             <!-- 图片容器区 -->
             <div class="u-picture-wrap">
-                <div class="u-label">{{ data.labelType || '' }}</div>
+                <div class="u-label" v-if="+cardLabel <= 4">{{ (data.labelType || '') | cardLabel }}</div>
                 <div class="u-pic">
                     <img :src="data.coverImg" :title="data.title || ''" />
                 </div>
@@ -56,6 +56,19 @@ export default {
     data() {
         return {
             // date...
+        }
+    },
+    // 字段过滤器
+    filters: {
+        // 卡片label
+        cardLabel: (type = '1') => {
+            const labelLabels = {
+                '1': '正版图片',
+                '2': '最新发布',
+                '3': '学习视频',
+                '4': '最多观看'
+            }
+            return type && labelLabels[type] ? labelLabels[type] : ''
         }
     },
     // 接收父组件传入的参数
